@@ -1,0 +1,22 @@
+<div class="cadastro-container">
+    <div class="box-cadastro">
+        <h1 class="logo">Your<span>Pets</span></h1>
+        <h4>Cadastro</h4>
+        <form class="cadastro-form" (submit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Crie um nome de usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="text" id="email" name="email" [(ngModel)]="email" placeholder="Coloque seu melhor email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Crie uma senha" required>
+            </div>
+            <button type="submit" [disabled]="isLoadingCadastro || isButtonDisabled()">{{ buttonText }}</button>
+            <span class="cadastro-text">já tem cadastro? <span (click)="telaLogin()">Logar</span></span>
+        </form>
+    </div>
+</div>

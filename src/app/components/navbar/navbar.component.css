@@ -1,0 +1,154 @@
+
+nav {
+    background-color: #efdac1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 30px;
+    z-index: 1000;
+    border-bottom: solid #E63946 1.5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul div {
+    display: flex;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.logo span {
+    color: #e63946;
+}
+
+.btn-perfil {
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: opacity 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-logout {
+    background-color: #E87E48;
+}
+
+.btn-editar {
+    background-color: #e63946;
+}
+
+.btn-home {
+    background-color: #1F88E5;
+}
+
+.btn-perfil:hover{
+    opacity: 0.7;
+}
+
+nav input {
+    padding: 8.5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-pesquisa {
+    background-color: #1F88E5;
+    padding: 8.5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@media (max-width: 830px) {
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .btn-editar, .btn-home, .btn-logout {
+        font-size: 0.9em;
+    }
+
+    nav input {
+        width: 150px;
+    }
+
+    nav ul div {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    nav {
+        padding: 10px 10px;
+    }
+
+    nav input {
+        width: 100px;
+    }
+}
+
+@media (max-width: 570px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    nav ul div {
+        justify-content: center;
+    }
+
+    .btn-editar, .btn-home, .btn-logout {
+        font-size: 0.9em;
+    }
+
+    .btn-pesquisa {
+        border-radius: 0px 5px 5px 0px;
+        margin-left: 0px;
+    }
+
+    nav input {
+        border-radius: 5px 0px 0px 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    .logo {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
+    nav ul div {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    nav ul div li form {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul div li form input {
+        width: 70%;
+    }
+
+    .btn-editar, .btn-home, .btn-logout {
+        font-size: 0.8em;
+    }
+
+}
+
