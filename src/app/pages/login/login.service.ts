@@ -10,7 +10,7 @@ export class LoginService {
 
   async buscarUsuarios(): Promise<any> {
     try {
-      return await this.http.get('https://musictaste-backend.onrender.com/usuarios').toPromise();
+      return await this.http.get('https://yourpets-backend.onrender.com/usuarios').toPromise();
     } catch (error) {
       console.error('Erro ao buscar usuários:', error);
     }
@@ -18,7 +18,7 @@ export class LoginService {
 
   async logarUsuario(userID: any, password: any): Promise<any> {
     try {
-      return await this.http.post('https://musictaste-backend.onrender.com/usuarios', { userID: userID, password: password, action: 'login' }).toPromise();
+      return await this.http.post('https://yourpets-backend.onrender.com/usuarios', { userID: userID, password: password, action: 'login' }).toPromise();
     } catch (error) {
       console.error('Erro ao adicionar usuário:', error); 
       return false

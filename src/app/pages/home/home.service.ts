@@ -8,10 +8,19 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  async buscarUsuarios(): Promise<any> {
+  async getUserInfos(userID: any): Promise<any> {
+    const token = localStorage.getItem('token');
     try {
-      const usuariosCadastrados = await this.http.get('https://musictaste-backend.onrender.com/usuarios').toPromise();
-      return usuariosCadastrados;
+      return await this.http.post(`https://yourpets-backend.onrender.com/usuarios/${userID}`, { token: token }).toPromise();
+    } catch (error) {
+      console.error('Erro ao buscar usuários:', error);
+    }
+  }
+
+  async updateUserPets(userID: any, pets: any): Promise<any> {
+    const token = localStorage.getItem('token');
+    try {
+      return await this.http.put(`https://yourpets-backend.onrender.com/usuarios/${userID}`, { token: token, userID: userID, pets: pets }).toPromise();
     } catch (error) {
       console.error('Erro ao buscar usuários:', error);
     }

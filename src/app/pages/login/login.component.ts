@@ -4,13 +4,12 @@ import { LoginService } from './login.service';
 import * as CryptoJS from 'crypto-js';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   constructor(private router: Router, private loginService: LoginService) { }
 
   email: string = '';
@@ -23,10 +22,6 @@ export class LoginComponent implements OnInit {
 
   isLoadingCadastro: boolean = false;
   buttonText: string = 'Entrar';
-
-  ngOnInit(): void {
-    this.exibirSwal('Pedimos Paciência!', 'warning', 'O cadastro e login podem demorar, estamos usando um serviço de hospedagem back-end gratuito, com pouca velocidade :/');
-  }
 
   async onSubmit() {
     if (!this.validarEmail(this.email)) {
@@ -44,7 +39,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userID', usuarioEncontrado.id);
           this.resetarValores();
           this.isButtonLoading(false);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home/' + usuarioEncontrado.id]);
         }
       } else {
         this.exibirSwal('Erro!', 'error', 'Não achamos nenhum usuário com esse email. Caso não tenha cadastro clique em "cadastro" abaixo.');

@@ -9,23 +9,23 @@
         <div class="pets-grid">
             <div class="pet-card" *ngFor="let pet of pets">
                 <div class="card-info">
-                    <p class="pet-name">Sobre o <span>{{ pet.nome }}</span>!</p>
+                    <p class="pet-name">Sobre o <span>{{ pet.name }}</span>!</p>
                     <div class="pet-info">
                         <p>Cor</p>
-                        <span class="info-bold">{{ pet.cor }}</span>
+                        <span class="info-bold">{{ pet.color }}</span>
                     </div>
                     <div class="pet-info">
                         <p>Raça</p>
-                        <span class="info-bold">{{ pet.raca }}</span>
+                        <span class="info-bold">{{ pet.race }}</span>
                     </div>
                     <div class="pet-info">
                         <p>Sexo</p>
-                        <span class="info-bold">{{ pet.sexo }}</span>
+                        <span class="info-bold">{{ pet.sex }}</span>
                     </div>
                 </div>
                 <div class="card-options">
-                    <button class="bg-blue" (click)="editPet()">Editar</button>
-                    <button class="bg-red" (click)="removePet(pet.nome)">Excluir</button>
+                    <button class="bg-blue" (click)="editPet(pet.name)">Editar</button>
+                    <button class="bg-red" (click)="removePet(pet.name)">Excluir</button>
                 </div>
             </div>
         </div>
@@ -38,23 +38,23 @@
         <p class="modal-description">Informações do Pet</p>
         <form class="cadastro-form" (submit)="addPet()">
             <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" [(ngModel)]="nome" placeholder="Qual o nome?" required>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="Qual o nome?" required>
             </div>
             <div class="form-group">
-                <label for="cor">Cor:</label>
-                <input type="text" id="cor" name="cor" [(ngModel)]="cor" placeholder="Qual a cor?" required>
+                <label for="color">Cor:</label>
+                <input type="text" id="color" name="color" [(ngModel)]="color" placeholder="Qual a cor?" required>
             </div>
             <div class="form-group">
-                <label for="raca">Raça</label>
-                <input type="text" id="raca" name="raca" [(ngModel)]="raca" placeholder="Qual a raça?" required>
+                <label for="race">Raça</label>
+                <input type="text" id="race" name="race" [(ngModel)]="race" placeholder="Qual a raça?" required>
             </div>
             <div class="form-group">
-                <label for="sexo">Sexo:</label>
-                <input type="text" id="sexo" name="sexo" [(ngModel)]="sexo" placeholder="Qual o sexo?" required>
+                <label for="sex">Sexo:</label>
+                <input type="text" id="sex" name="sex" [(ngModel)]="sex" placeholder="Qual o sexo?" required>
             </div>
             <div class="modal-options">
-                <button class="bg-red" type="submit" [disabled]="!nome || !cor || !raca || !sexo">Adicionar Pet!</button>
+                <button class="bg-red" type="submit" [disabled]="!name || !color || !race || !sex">{{ editMode ? 'Atualizar Pet!' : 'Adicionar Pet!' }}</button>
                 <button class="bg-blue" (click)="closeModal()">Fechar</button>
             </div>
         </form>
