@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   async buscarUsuarios(): Promise<any> {
     try {
-      return await this.http.get('https://yourpets-backend.onrender.com/usuarios').toPromise();
+      return await this.http
+        .get('https://yourpets-backend.onrender.com/usuarios')
+        .toPromise();
     } catch (error) {
       console.error('Erro ao buscar usuários:', error);
     }
@@ -18,10 +19,16 @@ export class LoginService {
 
   async logarUsuario(userID: any, password: any): Promise<any> {
     try {
-      return await this.http.post('https://yourpets-backend.onrender.com/usuarios', { userID: userID, password: password, action: 'login' }).toPromise();
+      return await this.http
+        .post('https://yourpets-backend.onrender.com/usuarios', {
+          userID: userID,
+          password: password,
+          action: 'login',
+        })
+        .toPromise();
     } catch (error) {
-      console.error('Erro ao adicionar usuário:', error); 
-      return false
+      console.error('Erro ao logar usuário:', error);
+      return false;
     }
   }
 
